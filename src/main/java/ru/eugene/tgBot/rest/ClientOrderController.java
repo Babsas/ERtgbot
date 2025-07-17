@@ -19,7 +19,6 @@ public class ClientOrderController {
         this.entitiesService = entitiesService;
     }
 
-    // /rest/clients/{id}/orders
     @GetMapping("/{id}/orders")
     public List<ClientOrder> getClientOrders(@PathVariable Long id) {
         return entitiesService.getClientOrders(id);

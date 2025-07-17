@@ -1,10 +1,10 @@
 package ru.eugene.tgBot.service;
 
-import ru.eugene.tgBot.entity.Client;
-import ru.eugene.tgBot.entity.ClientOrder;
-import ru.eugene.tgBot.entity.Product;
+import ru.eugene.tgBot.entity.*;
 
 import java.util.List;
+import java.util.Optional;
+
 /**
  * Сервис для работы с сущностями телеграмм-бота
  */
@@ -45,4 +45,19 @@ public interface EntitiesService
     default List<Product> searchProductsByName(String name) {
         throw new UnsupportedOperationException("Доп. задание");
     }
+
+    Client saveClient(Client client);
+
+    ClientOrder saveOrder(ClientOrder order);
+
+    Optional<Client> findClientByExternalId(Long externalId);
+
+    Product getProductById(Long id);
+
+    List<Category> getCategoriesByParentId(Long parentId);
+
+    Category getCategoryById(Long id);
+
+
+
 }
