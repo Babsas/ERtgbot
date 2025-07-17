@@ -21,8 +21,6 @@ public class ProductController {
         this.entitiesService = entitiesService;
     }
 
-    // /rest/products/search?categoryId=...
-    // /rest/products/search?name=...
     @GetMapping("/search")
     public List<Product> searchProducts(@RequestParam(required = false) Long categoryId,
                                         @RequestParam(required = false) String name) {
@@ -34,7 +32,6 @@ public class ProductController {
         throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Укажите categoryId или name");
     }
 
-    // /rest/products/popular?limit=5
     @GetMapping("/popular")
     public List<Product> getTopPopularProducts(@RequestParam(defaultValue = "5") Integer limit) {
         return entitiesService.getTopPopularProducts(limit);
